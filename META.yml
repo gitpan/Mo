@@ -21,5 +21,7 @@ no_index:
 requires:
   perl: 5.10.0
 resources:
+  homepage: http://github.com/ingydotnet/mo-pm/tree
   license: http://dev.perl.org/licenses/
-version: 0.10
+  repository: git://github.com/ingydotnet/mo-pm.git
+version: 0.11
