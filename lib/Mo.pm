@@ -1,46 +1,16 @@
-use 5.010;
 package Mo;
-use strict;
-use warnings;
-
-our $VERSION = '0.11';
-
-use base 'Exporter';
-
-our @EXPORT = qw(extends has);
-
+require strict; require warnings;
+our $VERSION = '0.12';
 sub import {
-    my $class = $_[0];
-    my $pkg = caller;
-    strict->import;
-    warnings->import;
-    no strict 'refs';
-    push @{"${pkg}::ISA"}, $class;
-    goto &Exporter::import;
-}
-
-sub new {
-    my $class = shift;
-    my $self = bless {@_}, $class;
-}
-
-sub has {
-    my $name = shift;
-    my $pkg = caller;
-    my $has = sub {
-        my $self = shift;
-        return $self->{$name} unless @_;
-        return $self->{$name} = $_[0];
+    strict->import; warnings->import;
+    my $p = caller;
+    @{$p.'::ISA'} = $_[0];
+    *{$p.'::extends'} = sub { @{(caller).'::ISA'} = $_[0] };
+    *{$p.'::has'} = sub {
+        my $n = $_[0];
+        *{(caller)."::$n"} = sub { @_-1 ? $_[0]->{$n} = $_[1] : $_[0]->{$n} };
     };
-    no strict 'refs';
-    *{"${pkg}::$name"} = $has;
 }
-
-sub extends {
-    my $parent = shift;
-    my $pkg = caller;
-    no strict 'refs';
-    @{"${pkg}::ISA"} = ($parent);
+sub new {
+    my $s = bless { @_[1..$#_] }, $_[0]; $s->can('BUILD') && $s->BUILD; $s
 }
-
-1;
