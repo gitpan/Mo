@@ -18,6 +18,7 @@ MANIFEST			This list of files
 META.yml
 README
 t/Bar.pm
+t/Boo.pm
 t/common.yaml
 t/extends.t
 t/Foo.pm
