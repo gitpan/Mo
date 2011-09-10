@@ -24,4 +24,4 @@ resources:
   homepage: http://github.com/ingydotnet/mo-pm/tree
   license: http://dev.perl.org/licenses/
   repository: git://github.com/ingydotnet/mo-pm.git
-version: 0.14
+version: 0.15
