@@ -19,6 +19,7 @@ META.yml
 README
 t/Bar.pm
 t/Boo.pm
+t/build.t
 t/common.yaml
 t/extends.t
 t/Foo.pm
