@@ -69,7 +69,7 @@ do the things it does in an incompatible style to the C<Moose> family.
     
 This is not to say that all Mo code can be switched to Moo, or vice versa.
 This I<is> to say that you should be able to find a style of coding using the
-full capabilities of Mo, that you can switch to Moo (or L<Mouse> or L<Moose>),
+full capabilities of Mo, that you can switch to L<Moo> (or L<Mouse> or L<Moose>),
 if you want to.
 
 This is a difficult design goal, and might sometimes lose out to the other
@@ -88,11 +88,11 @@ decisions were made and any known concerns being thought about.
 
 Mo uses C<extends> to name its (single inheritance) parent.
 
-In the past, Mo supported multiple inheritance. This was consider suboptimal
-for a couple reasons. MI is generally frowned upon in Perl. It has problems
+In the past, Mo supported multiple inheritance. This was considered suboptimal
+for a few reasons. MI is generally frowned upon in Perl. It has problems
 that are better solved by roles. It also makes the BUILD call sequence much
-more difficult, which makes Moose compatibility hard. For this reason, we
-removee MI as a Mo feature. As a result, the code became much simpler.
+more difficult, which makes Moose compatibility hard. For these reasons, we
+removed MI as a Mo feature. As a result, the code became much simpler.
 
 It is highly doubtful that roles will be supported either. One should upgrade
 to Moo or higher when MI or roles become needed.
@@ -165,19 +165,47 @@ and offers great value. Also, all the other Moose family does it.
 
 =head1 Topics, Concerns and Issues
 
-This is a list of eveything else.
+This is a list of everything else.
+
+=head2 Ungolfing
+
+The wave of golfing around 0.22 has been mostly awesome, but has raised some
+issues that need to be clarified both here and in the tests.
 
 =over
 
-=item Why not Moose?
+=item package avoidance
 
-The sad fact of Perl 5 is that OO isn't built in.
+By introducing C<Mo'_'new> etc, we save a few bytes but make the code harder
+to repackage.
 
-Moose not only added OO, it took OO to a new level. It is indeed a postmodern
-system. Unfortunately this comes at a (often hefty) performance price.
+If Mo usage becomes wide spread (even somewhat so) then we will have multiple
+versions clobbering each other in a given process.
+
+We need to suggest that when people inline Mo, they change the package name.
+Therefore, it is probably best to put package back in, and add a test to that
+effect.
+
+=item Runtime slowdown
+
+I think we need to start golfing runtime op calls. We should start by writing
+tests in xt, that count the ops for various calls. Then with every change we
+can balance speed against minimalism.
+
+I don't know how to count runtime op calls. Anyone?
+
+=back
+
+=head2 Why not Moose?
+
+The sad fact of Perl 5 is that there's no object model built in.
+
+Moose not only added an elegant, usable object model, it took OO to a new
+level. It is indeed a postmodern system. Unfortunately this comes at a (often
+hefty) performance price.
 
 Attempts to make something similar but less hefty came in the forms of Mouse,
-Mousse and Moo. Mo is just the next attempt. It is a bare minimum OO
+L<Mousse> and Moo. Mo is just the next attempt. It is a bare minimum OO
 framework, that still looks like Moose.
 
 I've heard people argue that Mo doesn't belong in the Moose family, but those
@@ -193,8 +221,7 @@ point, all the others will become remnants of the past.
 
 In the meantime, I hope that Mo et al, helps people to get past their Moose
 inhibitions, and start using the Mo* that makes sense. I(ngy) have authored
-other OO base modules like Spiffy and Gloom. There are things about those that
+other OO base modules like L<Spiffy> and L<Gloom>. There are things about those that
 I sorely miss in the Moose family, but I have decided to stopping fighting the
 Moose. I for one, welcome our new giant antlered overlord.
 
-=back
