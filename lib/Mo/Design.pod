@@ -167,12 +167,48 @@ and offers great value. Also, all the other Moose family does it.
 
 This is a list of everything else.
 
+=head2 An extension system
+
+Mo gets requests to add certain features. These should not be added to the
+core until they can be proven in an extension system. This means that there
+actually needs to be an extension system. I have some idea about how this
+should work. Here goes:
+
+We write a number of extensions. They have the ability to wrap, add to or
+remove exported subs. You use one like this:
+
+    use Mo qw'foo bar';
+
+This loads Mo::foo and Mo::Bar. It calls the C<e()> subroutine on each. It
+passes in a list like:
+
+    has => \&has, extends => \&extends
+
+It receives back a mutated list and passes it to the next extension module.
+Finally it exports all the subs.
+
+That's it. It will require some attention and a lot of tests, but it should
+beable to make anything possible.
+
+The work on this idea is being done on the C<momo> branch.
+
+=head2 1024 Size Limit
+
+Mo.pm is currently around 500 bytes long. It should strive to never exceed
+1024 bytes. Much less if possible, but 1024 is the limit.
+
 =head2 Ungolfing
 
 The wave of golfing around 0.22 has been mostly awesome, but has raised some
 issues that need to be clarified both here and in the tests.
 
 =over
+
+=head2 Automated Golfing
+
+I want to start a policy that all of the golfing efforts will be made via a
+script to sane code. We should automate testing both the ungolfed and golfed
+code.
 
 =item package avoidance
 
@@ -195,6 +231,17 @@ can balance speed against minimalism.
 I don't know how to count runtime op calls. Anyone?
 
 =back
+
+=head2 Moose and Moo creators like Mo
+
+I can't (and am certain that I don't) speak for all the Moose community, But
+I(ngy) personally know that stevan (creator of Moose) and mst (creator of Moo)
+approve of Mo. They hang out on the #mo irc channel, and mst has made a large
+portion of the code commits.
+
+This is a sign of a healthy project, because hopefully we can all forge a
+clear idea of how all these modules relate to each other and support each
+other.
 
 =head2 Why not Moose?
 
