@@ -41,7 +41,7 @@ ok not(defined($f->{this})), '{this} is not defined';
 
 #============
 package Bar;
-use Mo;
+use Mo 'builder', 'default';
 extends 'Foo';
 
 has 'that';
@@ -94,7 +94,7 @@ is $b->guess, 'me me me', 'default trumps builder';
 
 #============
 package Baz;
-use Mo;
+use Mo 'build';
 
 has 'foo';
 

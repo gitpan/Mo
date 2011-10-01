@@ -17,12 +17,15 @@ name: Mo
 no_index:
   directory:
     - inc
+    - src
     - t
     - xt
+recommends:
+  IO::All: 0
 requires:
   perl: 5.6.0
 resources:
   homepage: http://github.com/ingydotnet/mo-pm/tree
   license: http://dev.perl.org/licenses/
   repository: git://github.com/ingydotnet/mo-pm.git
-version: 0.24
+version: 0.25
