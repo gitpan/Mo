@@ -10,7 +10,7 @@
 package Mo::Inline;
 use Mo;
 
-our $VERSION = 0.25;
+our $VERSION = 0.26;
 
 use IO::All;
 
@@ -76,11 +76,10 @@ sub inliner {
         my @lines = io($INC{$module})->chomp->getlines;
         $lines[-1];
     } ('Mo', map { s!::!/!g; "Mo/$_" } @features);
-    $inline .= 'use strict;use warnings;';
     return <<"...";
 #   The following line of code was produced from the previous line by
 #   Mo::Inline version $VERSION
-$inline
+$inline\@f=qw[@features];use strict;use warnings;
 ...
 }
 

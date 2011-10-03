@@ -22,14 +22,22 @@ lib/Mo/coerce.pod
 lib/Mo/default.pm
 lib/Mo/default.pod
 lib/Mo/Design.pod
+lib/Mo/exporter.pm
+lib/Mo/exports.pod
 lib/Mo/Features.pod
+lib/Mo/Golf.pm
+lib/Mo/Golf.pod
 lib/Mo/Hacking.pod
+lib/Mo/import.pm
+lib/Mo/import.pod
 lib/Mo/Inline.pm
 lib/Mo/Inline.pod
 lib/Mo/is.pm
 lib/Mo/is.pod
 lib/Mo/required.pm
 lib/Mo/required.pod
+lib/Mo/xs.pm
+lib/Mo/xs.pod
 LICENSE
 Makefile.PL
 MANIFEST			This list of files
@@ -47,3 +55,4 @@ t/object.t
 t/required.t
 t/strict.t
 t/test.t
+t/xs.t
