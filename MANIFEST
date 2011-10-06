@@ -17,6 +17,8 @@ lib/Mo.pod
 lib/Mo/build.pm
 lib/Mo/builder.pm
 lib/Mo/builder.pod
+lib/Mo/chain.pm
+lib/Mo/chain.pod
 lib/Mo/coerce.pm
 lib/Mo/coerce.pod
 lib/Mo/default.pm
@@ -46,6 +48,7 @@ README
 t/Bar.pm
 t/Boo.pm
 t/build.t
+t/chain.t
 t/coerce.t
 t/combined.t
 t/extends.t
