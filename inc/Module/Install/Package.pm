@@ -70,7 +70,7 @@ sub module_package_internals_init {
     }
     else {
         $module_package_dist_plugin = $self->_load_dist_plugin($plugin_spec);
-        $module_package_dist_plugin->mi($module_install_plugin);
+        $module_package_dist_plugin->mi($module_install_plugin) if ref $module_package_dist_plugin;
     }
     # NOTE - This is the point in time where the body of Makefile.PL runs...
     return;
@@ -85,9 +85,9 @@ sub module_package_internals_init {
             }
             else {
                 $module_install_plugin->_initial();
-                $module_package_dist_plugin->_initial() if $module_package_dist_plugin;
+                $module_package_dist_plugin->_initial() if ref $module_package_dist_plugin;
                 $module_install_plugin->_main();
-                $module_package_dist_plugin->_main() if $module_package_dist_plugin;
+                $module_package_dist_plugin->_main() if ref $module_package_dist_plugin;
             }
         };
         if ($@) {
@@ -110,7 +110,7 @@ sub module_package_internals_init {
             }
             : do {
                 $module_install_plugin->_final;
-                $module_package_dist_plugin->_final() if $module_package_dist_plugin;
+                $module_package_dist_plugin->_final() if ref $module_package_dist_plugin;
             }
     }
 }

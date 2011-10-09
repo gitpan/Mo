@@ -36,6 +36,10 @@ lib/Mo/Inline.pm
 lib/Mo/Inline.pod
 lib/Mo/is.pm
 lib/Mo/is.pod
+lib/Mo/Moose.pm
+lib/Mo/Moose.pod
+lib/Mo/option.pm
+lib/Mo/option.pod
 lib/Mo/required.pm
 lib/Mo/required.pod
 lib/Mo/xs.pm
@@ -54,7 +58,9 @@ t/combined.t
 t/extends.t
 t/Foo.pm
 t/is.t
+t/Moose.t
 t/object.t
+t/option.t
 t/required.t
 t/strict.t
 t/test.t
