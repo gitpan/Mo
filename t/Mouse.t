@@ -2,13 +2,13 @@ use Test::More tests => 5;
 
 {
     package Foo;
-    use Mo 'Moose';
+    use Mo 'Mouse';
 
     has foo => ();
     has bar => (default => 'I like pie!');
 }
 
-is $Foo::ISA[0], 'Moose::Object', 'ISA Moose::Object';
+is $Foo::ISA[0], 'Mouse::Object', 'ISA Mouse::Object';
 
 my $f = Foo->new(foo => 42);
 

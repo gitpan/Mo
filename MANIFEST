@@ -38,6 +38,8 @@ lib/Mo/is.pm
 lib/Mo/is.pod
 lib/Mo/Moose.pm
 lib/Mo/Moose.pod
+lib/Mo/Mouse.pm
+lib/Mo/Mouse.pod
 lib/Mo/option.pm
 lib/Mo/option.pod
 lib/Mo/required.pm
@@ -59,6 +61,7 @@ t/extends.t
 t/Foo.pm
 t/is.t
 t/Moose.t
+t/Mouse.t
 t/object.t
 t/option.t
 t/required.t
