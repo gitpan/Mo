@@ -32,6 +32,8 @@ lib/Mo/Golf.pod
 lib/Mo/Hacking.pod
 lib/Mo/import.pm
 lib/Mo/import.pod
+lib/Mo/importer.pm
+lib/Mo/importer.pod
 lib/Mo/Inline.pm
 lib/Mo/Inline.pod
 lib/Mo/is.pm
@@ -59,6 +61,7 @@ t/coerce.t
 t/combined.t
 t/extends.t
 t/Foo.pm
+t/importer.t
 t/is.t
 t/Moose.t
 t/Mouse.t
