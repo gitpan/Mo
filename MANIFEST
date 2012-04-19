@@ -63,6 +63,7 @@ t/extends.t
 t/Foo.pm
 t/importer.t
 t/is.t
+t/main_sub.t
 t/Moose.t
 t/Mouse.t
 t/object.t
