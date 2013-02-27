@@ -59,6 +59,7 @@ t/build.t
 t/chain.t
 t/coerce.t
 t/combined.t
+t/default.t
 t/extends.t
 t/Foo.pm
 t/importer.t
