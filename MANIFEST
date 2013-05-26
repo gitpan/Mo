@@ -42,6 +42,7 @@ lib/Mo/Moose.pm
 lib/Mo/Moose.pod
 lib/Mo/Mouse.pm
 lib/Mo/Mouse.pod
+lib/Mo/nonlazy.pm
 lib/Mo/option.pm
 lib/Mo/option.pod
 lib/Mo/required.pm
@@ -64,6 +65,7 @@ t/extends.t
 t/Foo.pm
 t/importer.t
 t/is.t
+t/lazy-nonlazy.t
 t/main_sub.t
 t/Moose.t
 t/Mouse.t

@@ -11,7 +11,7 @@ use strict;
 use warnings;
 package Mo::Golf;
 
-our $VERSION = '0.33';
+our $VERSION = '0.34';
 
 use PPI;
 
@@ -22,14 +22,16 @@ my %short_names = (
         map {($_, substr($_, 0, 1))}
         qw(
             args builder class default exports features
-            generator import method MoPKG name options
-            reftype self
+            generator import is_lazy method MoPKG name
+            nonlazy_defaults options reftype self
         )
     ),
     build_subs => 'B',
     old_constructor => 'C',
     caller_pkg => 'P',
 );
+
+my %short_barewords = ( EAGERINIT => q{':E'}, NONLAZY => q{':N'} );
 
 my %hands_off = map {($_,1)} qw'&import *import';
 
@@ -56,7 +58,7 @@ sub golf {
     }
 
     $tree->find( $finder_subs{$_} )
-      for qw( del_superfluous_concat del_last_semicolon_in_block separate_version shorten_var_names );
+      for qw( del_superfluous_concat del_last_semicolon_in_block separate_version shorten_var_names shorten_barewords );
     die $@ if $@;
 
     for my $name ( 'double_semicolon' ) {
@@ -93,13 +95,13 @@ sub _finder_subs {
 
             return 1 if $prev->isa( tok 'Number' ) and $next->isa( tok 'Operator' ) and $next->content =~ /^\W/; # my $P
             return 1 if $prev->isa( tok 'Word' )   and $next->isa( tok 'Operator' ) and $next->content =~ /^\W/; # my $P
+            return 1 if $prev->isa( tok 'Symbol' ) and $next->isa( tok 'Operator' ) and $next->content =~ /^\W/; # $VERSION =  but not $v and
 
             return 1 if $prev->isa( tok 'Operator' ) and $next->isa( tok 'Quote::Single' ) and $next->content =~ /^\W/; # eq ''
             return 1 if $prev->isa( tok 'Operator' ) and $next->isa( tok 'Quote::Double' ) and $next->content =~ /^\W/; # eq ""
             return 1 if $prev->isa( tok 'Operator' ) and $next->isa( tok 'Symbol' )        and $next->content =~ /^\W/; # eq $v
             return 1 if $prev->isa( tok 'Operator' ) and $next->isa( tok 'Structure' )     and $next->content =~ /^\W/; # eq (
 
-            return 1 if $prev->isa( tok 'Symbol' )     and $next->isa( tok 'Operator' );         # $VERSION =
             return 1 if $prev->isa( tok 'Word' )       and $next->isa( tok 'Symbol' );           # my $P
             return 1 if $prev->isa( tok 'Word' )       and $next->isa( tok 'Structure' );        # sub {
             return 1 if $prev->isa( tok 'Word' )       and $next->isa( tok 'Quote::Double' );    # eval "
@@ -200,6 +202,23 @@ sub _finder_subs {
 
             my $short_name = $short_names{$name};
             $current->set_content( "$sigil$short_name" ) if $short_name;
+
+            return 1;
+        },
+
+        shorten_barewords => sub {
+            my ( $top, $current ) = @_;
+            return 0 if !$current->isa( tok 'Word' );
+
+            my $name = $current->content;
+
+            die "bareword $name conflicts with shortened bareword"
+                if grep {
+                    $name eq $_
+                } values %short_barewords;
+
+            my $short_name = $short_barewords{$name};
+            $current->set_content( $short_name ) if $short_name;
 
             return 1;
         },

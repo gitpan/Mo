@@ -1,4 +1,5 @@
-use Test::More tests => 29;
+use Test::More tests => 34;
+my $call_count;
 
 package Baz;
 use Mo qw(default is);
@@ -21,9 +22,19 @@ has drink => ( 66, is => 'ro' );
 has drank => ( [99], is => 'rw' );
 has drunk => ( { hang => 'over' }, is => 'rw' );
 
+has learned => sub { $call_count++; 'nothing' }, lazy => 0;
+
 has fate => ();
 
 package main;
+
+my $eager = Baz->new;
+is $call_count, 1, 'Eagerly initialized when asked';
+is $eager->{learned}, 'nothing', "initialized correctly";
+$eager = Baz->new(learned => "Abre-te sesamo");
+is $call_count, 1, 'Default generator not called if initial value given to constructor';
+is $eager->learned, 'Abre-te sesamo', "Attribute set to passed-in value";
+is $call_count, 1, "default generator not called on the accessor";
 
 # Regulars
 my $foo = new_ok('Baz');
