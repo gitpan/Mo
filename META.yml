@@ -7,7 +7,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880'
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.130880'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -32,7 +32,7 @@ resources:
   bugtracker: https://github.com/ingydotnet/mo-pm/issues
   homepage: https://github.com/ingydotnet/mo-pm
   repository: https://github.com/ingydotnet/mo-pm.git
-version: 0.36
+version: 0.37
 x_Dist_Zilla:
   perl:
     version: 5.014002
@@ -60,55 +60,55 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@INGY/@Filter/PruneCruft'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ManifestSkip
       name: '@INGY/@Filter/ManifestSkip'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@INGY/@Filter/MetaYAML'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::License
       name: '@INGY/@Filter/License'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Readme
       name: '@INGY/@Filter/Readme'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@INGY/@Filter/ExecDir'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ShareDir
       name: '@INGY/@Filter/ShareDir'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::MakeMaker
       name: '@INGY/@Filter/MakeMaker'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@INGY/@Filter/Manifest'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@INGY/@Filter/TestRelease'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@INGY/@Filter/ConfirmRelease'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@INGY/@Filter/UploadToCPAN'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@INGY/AutoPrereqs'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
       name: '@INGY/Git::NextVersion'
@@ -120,27 +120,34 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PkgVersion
       name: '@INGY/PkgVersion'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@INGY/MetaConfig'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@INGY/MetaJSON'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: '@INGY/NextRelease'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@INGY/PodSyntaxTests'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Test::Compile
+      config:
+        Dist::Zilla::Plugin::Test::Compile:
+          filename: xt/author/00-compile.t
+          module_finder:
+            - ':InstallModules'
+          script_finder:
+            - ':ExecFiles'
       name: '@INGY/Test::Compile'
-      version: 2.002
+      version: 2.037
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@INGY/ReportVersions::Tiny'
@@ -152,7 +159,7 @@ x_Dist_Zilla:
           phase: test
           type: requires
       name: '@INGY/TestMoreWithSubtests'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::GithubMeta
       name: '@INGY/GithubMeta'
@@ -180,11 +187,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaNoIndex
       name: MetaNoIndex
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: ExtraTests
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::RunExtraTests
       name: RunExtraTests
@@ -204,7 +211,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaTests
       name: MetaTests
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::CheckMetaResources
       name: CheckMetaResources
@@ -216,7 +223,7 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: Prereqs
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -224,7 +231,7 @@ x_Dist_Zilla:
           phase: runtime
           type: recommends
       name: Recommends
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Test::PodSpelling
       name: Test::PodSpelling
@@ -232,29 +239,29 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':IncModules'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 4.300034
+      version: 4.300039
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':MainModule'
-      version: 4.300034
+      version: 4.300039
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: 0
-    version: 4.300034
+    version: 4.300039

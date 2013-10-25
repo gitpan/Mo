@@ -4,7 +4,7 @@
       "Ingy d\u00c3\u00b6t Net <ingy@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "perl_5"
    ],
@@ -32,7 +32,12 @@
       },
       "develop" : {
          "requires" : {
+            "File::Spec" : "0",
+            "File::Temp" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
             "Test::CPAN::Meta" : "0",
+            "Test::More" : "0",
             "Test::Pod" : "1.41",
             "version" : "0.9901"
          }
@@ -66,7 +71,7 @@
          "web" : "https://github.com/ingydotnet/mo-pm"
       }
    },
-   "version" : "0.36",
+   "version" : "0.37",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.014002"
@@ -100,67 +105,67 @@
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
             "name" : "@INGY/@Filter/PruneCruft",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::ManifestSkip",
             "name" : "@INGY/@Filter/ManifestSkip",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaYAML",
             "name" : "@INGY/@Filter/MetaYAML",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::License",
             "name" : "@INGY/@Filter/License",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::Readme",
             "name" : "@INGY/@Filter/Readme",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::ExecDir",
             "name" : "@INGY/@Filter/ExecDir",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::ShareDir",
             "name" : "@INGY/@Filter/ShareDir",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::MakeMaker",
             "name" : "@INGY/@Filter/MakeMaker",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::Manifest",
             "name" : "@INGY/@Filter/Manifest",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::TestRelease",
             "name" : "@INGY/@Filter/TestRelease",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
             "name" : "@INGY/@Filter/ConfirmRelease",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
             "name" : "@INGY/@Filter/UploadToCPAN",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::AutoPrereqs",
             "name" : "@INGY/AutoPrereqs",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
@@ -175,32 +180,43 @@
          {
             "class" : "Dist::Zilla::Plugin::PkgVersion",
             "name" : "@INGY/PkgVersion",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
             "name" : "@INGY/MetaConfig",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",
             "name" : "@INGY/MetaJSON",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::NextRelease",
             "name" : "@INGY/NextRelease",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
             "name" : "@INGY/PodSyntaxTests",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Compile",
+            "config" : {
+               "Dist::Zilla::Plugin::Test::Compile" : {
+                  "filename" : "xt/author/00-compile.t",
+                  "module_finder" : [
+                     ":InstallModules"
+                  ],
+                  "script_finder" : [
+                     ":ExecFiles"
+                  ]
+               }
+            },
             "name" : "@INGY/Test::Compile",
-            "version" : "2.002"
+            "version" : "2.037"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReportVersions::Tiny",
@@ -216,7 +232,7 @@
                }
             },
             "name" : "@INGY/TestMoreWithSubtests",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::GithubMeta",
@@ -251,12 +267,12 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaNoIndex",
             "name" : "MetaNoIndex",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::ExtraTests",
             "name" : "ExtraTests",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::RunExtraTests",
@@ -281,7 +297,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaTests",
             "name" : "MetaTests",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckMetaResources",
@@ -297,7 +313,7 @@
                }
             },
             "name" : "Prereqs",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -308,7 +324,7 @@
                }
             },
             "name" : "Recommends",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::PodSpelling",
@@ -318,32 +334,32 @@
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":InstallModules",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":IncModules",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":TestFiles",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ExecFiles",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ShareFiles",
-            "version" : "4.300034"
+            "version" : "4.300039"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":MainModule",
-            "version" : "4.300034"
+            "version" : "4.300039"
          }
       ],
       "zilla" : {
@@ -351,7 +367,7 @@
          "config" : {
             "is_trial" : "0"
          },
-         "version" : "4.300034"
+         "version" : "4.300039"
       }
    }
 }

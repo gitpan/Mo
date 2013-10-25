@@ -50,7 +50,11 @@ sub pmver {
 
 eval { $v .= pmver('Class::XSAccessor','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
+eval { $v .= pmver('File::Spec','any version') };
+eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('IO::All','any version') };
+eval { $v .= pmver('IO::Handle','any version') };
+eval { $v .= pmver('IPC::Open3','any version') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Mouse','any version') };
 eval { $v .= pmver('Test::CPAN::Meta','any version') };
