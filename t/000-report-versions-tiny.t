@@ -59,6 +59,7 @@ eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Mouse','any version') };
 eval { $v .= pmver('Test::CPAN::Meta','any version') };
 eval { $v .= pmver('Test::More','0.96') };
+eval { $v .= pmver('Test::NoTabs','any version') };
 eval { $v .= pmver('Test::Pod','1.41') };
 eval { $v .= pmver('version','0.9901') };
 

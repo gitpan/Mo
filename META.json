@@ -4,7 +4,7 @@
       "Ingy d\u00c3\u00b6t Net <ingy@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132830",
    "license" : [
       "perl_5"
    ],
@@ -38,6 +38,7 @@
             "IPC::Open3" : "0",
             "Test::CPAN::Meta" : "0",
             "Test::More" : "0",
+            "Test::NoTabs" : "0",
             "Test::Pod" : "1.41",
             "version" : "0.9901"
          }
@@ -71,7 +72,7 @@
          "web" : "https://github.com/ingydotnet/mo-pm"
       }
    },
-   "version" : "0.37",
+   "version" : "0.38",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.014002"
@@ -85,12 +86,12 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
             "name" : "Git::Check",
-            "version" : "2.013"
+            "version" : "2.017"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::GatherDir",
             "name" : "@INGY/Git::GatherDir",
-            "version" : "2.013"
+            "version" : "2.017"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckPrereqsIndexed",
@@ -100,7 +101,7 @@
          {
             "class" : "Dist::Zilla::Plugin::CheckExtraTests",
             "name" : "@INGY/CheckExtraTests",
-            "version" : "0.011"
+            "version" : "0.013"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
@@ -170,7 +171,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
             "name" : "@INGY/Git::NextVersion",
-            "version" : "2.013"
+            "version" : "2.017"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReadmeFromPod",
@@ -237,32 +238,37 @@
          {
             "class" : "Dist::Zilla::Plugin::GithubMeta",
             "name" : "@INGY/GithubMeta",
-            "version" : "0.28"
+            "version" : "0.42"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
             "name" : "@INGY/@Git/Check",
-            "version" : "2.013"
+            "version" : "2.017"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
             "name" : "@INGY/@Git/Commit",
-            "version" : "2.013"
+            "version" : "2.017"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@INGY/@Git/Tag",
-            "version" : "2.013"
+            "version" : "2.017"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
             "name" : "@INGY/@Git/Push",
-            "version" : "2.013"
+            "version" : "2.017"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::ChangesFromYaml",
+            "name" : "ChangesFromYaml",
+            "version" : "0.003"
          },
          {
             "class" : "Dist::Zilla::Plugin::GithubMeta",
             "name" : "GithubMeta",
-            "version" : "0.28"
+            "version" : "0.42"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaNoIndex",
@@ -277,12 +283,22 @@
          {
             "class" : "Dist::Zilla::Plugin::RunExtraTests",
             "name" : "RunExtraTests",
-            "version" : "0.011"
+            "version" : "0.013"
          },
          {
             "class" : "Dist::Zilla::Plugin::NoTabsTests",
+            "config" : {
+               "Dist::Zilla::Plugin::Test::NoTabs" : {
+                  "module_finder" : [
+                     ":InstallModules"
+                  ],
+                  "script_finder" : [
+                     ":ExecFiles"
+                  ]
+               }
+            },
             "name" : "NoTabsTests",
-            "version" : "0.01"
+            "version" : "0.05"
          },
          {
             "class" : "Dist::Zilla::Plugin::EOLTests",
@@ -329,7 +345,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Test::PodSpelling",
             "name" : "Test::PodSpelling",
-            "version" : "2.006000"
+            "version" : "2.006001"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
