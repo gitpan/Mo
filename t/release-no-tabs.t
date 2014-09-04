@@ -9,7 +9,7 @@ BEGIN {
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::NoTabsTests 0.05
+# this test was generated with Dist::Zilla::Plugin::NoTabsTests 0.09
 
 use Test::More 0.88;
 use Test::NoTabs;
@@ -51,7 +51,38 @@ my @files = (
     'lib/Mo/required.pm',
     'lib/Mo/required.pod',
     'lib/Mo/xs.pm',
-    'lib/Mo/xs.pod'
+    'lib/Mo/xs.pod',
+    't/000-report-versions-tiny.t',
+    't/Bar.pm',
+    't/Boo.pm',
+    't/Foo.pm',
+    't/Moose.t',
+    't/Mouse.t',
+    't/author-00-compile.t',
+    't/author-pod-spell.t',
+    't/build.t',
+    't/builder.t',
+    't/chain.t',
+    't/coerce.t',
+    't/combined.t',
+    't/default.t',
+    't/extends.t',
+    't/importer.t',
+    't/is.t',
+    't/lazy-nonlazy.t',
+    't/main_sub.t',
+    't/object.t',
+    't/option.t',
+    't/release-correct-version.t',
+    't/release-distmeta.t',
+    't/release-eol.t',
+    't/release-no-tabs.t',
+    't/release-pod-syntax.t',
+    't/release-test-version.t',
+    't/required.t',
+    't/strict.t',
+    't/test.t',
+    't/xs.t'
 );
 
 notabs_ok($_) foreach @files;

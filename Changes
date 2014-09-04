@@ -1,3 +1,6 @@
+0.39 2014-09-03 23:31:55 -0600
+ - Apply PR/25. @daoswald++
+
 0.38 2013-10-28 15:37:28 +0800
  - Fixed Changes file to comply to CPAN::Changes::Spec
 
